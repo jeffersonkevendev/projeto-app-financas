@@ -1,178 +1,202 @@
 /* Estilos gerais */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #002147; /* Azul escuro */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+  background-color: #002147; /* Azul escuro */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 90%;
+  position: relative;
+}
+
+.success-message {
+  display: none;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.success-message i {
+  margin-right: 5px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.tela-cadastrar, .tela-historico {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: none;
+}
+
+.tela-cadastrar.active, .tela-historico.active {
+  display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.bottom-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.bottom-buttons .btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bottom-buttons .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para o histórico */
+.historico-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+
+.historico-header span {
+  width: 20%; /* Ajuste a largura para acomodar os botões */
+  text-align: center;
+}
+
+#listaHistorico {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lista-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.lista-item span {
+  width: 20%; /* Ajuste a largura para acomodar os botões */
+  text-align: center;
+}
+
+.acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-editar, .btn-excluir {
+  font-size: 18px;
+  cursor: pointer;
+  color: #333; /* Define a cor dos ícones */
+}
+
+.btn-editar:hover {
+  color: #e76f51;
+}
+
+.btn-excluir:hover {
+  color: #d9534f;
+}
+
+.total-despesas {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 600px) {
   .container {
-    width: 90%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 90%;
-    position: relative;
-  }
-  
-  .content {
-    flex-grow: 1;
-    width: 100%;
-  }
-  
-  .tela-cadastrar, .tela-historico {
-    display: none;
-  }
-  
-  .tela-cadastrar.active, .tela-historico.active {
-    display: block;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-top: 10px;
-  }
-  
-  input, select {
     padding: 10px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
   }
-  
-  button {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #f4a261;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #e76f51;
-  }
-  
+
   .bottom-buttons {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-buttons .btn {
     width: 100%;
-  }
-  
-  .btn {
-    padding: 15px;
-    background-color: #2a9d8f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    width: 45%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .btn:hover {
-    background-color: #264653;
-  }
-  
-  /* Estilos para o histórico */
-  .historico-header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
     margin-bottom: 10px;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 5px;
-    margin-top: 20px;
   }
-  
-  .historico-header span {
-    width: 20%; /* Ajuste a largura para acomodar os botões */
-    text-align: center;
-  }
-  
-  #listaHistorico {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .lista-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    color: #333;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .lista-item span {
-    width: 20%; /* Ajuste a largura para acomodar os botões */
-    text-align: center;
-  }
-
-  .acoes {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .btn-editar, .btn-excluir {
-    font-size: 18px;
-    cursor: pointer;
-    color: #333; /* Define a cor dos ícones */
-  }
-
-  .btn-editar:hover {
-    color: #e76f51;
-  }
-
-  .btn-excluir:hover {
-    color: #d9534f;
-  }
-
-  .total-despesas {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    font-weight: bold;
-  }
-
-  .success-message {
-    display: none;
-    color: white;
-    font-size: 16px;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: green;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-
-  .success-message i {
-    margin-right: 5px;
-  }
+}
